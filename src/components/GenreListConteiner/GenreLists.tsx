@@ -11,6 +11,7 @@ const GenreLists = () => {
     const {movie} = useAppSelector(state => state.movie)
     const dispatch = useAppDispatch();
 
+
     useEffect(() => {
         with_genres
             ?
