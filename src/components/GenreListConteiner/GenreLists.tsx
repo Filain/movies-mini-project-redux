@@ -19,6 +19,7 @@ const GenreLists = () => {
         dispatch(movieActions.getAll({page}))
     }, [page, with_genres,dispatch]);
 
+
     return (
         <div>
             <Movies page={page} movies={movie} setQuery={setQuery}/>
