@@ -24,7 +24,7 @@ const SearchContainer: FC<IProps> = ({word}) => {
             :
             dispatch(movieActions.getAll({page}))
 
-    }, [word, page]);
+    }, [word, page, dispatch]);
 
     return (
         <div>

@@ -1,4 +1,4 @@
-import {IInfo} from "../../../interfases/infoMovie";
+import {IInfo} from "../../../interfases";
 import {FC} from "react";
 
 import {Rating} from "@mui/material";
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const InfoMovieDat: FC<IProps> = ({info}) => {
-    const {id, title, poster_path, overview, genres, release_date, vote_average, original_title, runtime,} = info
+    const {title, poster_path, overview, genres, release_date, vote_average, original_title, runtime,} = info
     return (
         <div className={css.wrap}>
             <div className={css.title}>{title}</div>
@@ -22,7 +22,7 @@ const InfoMovieDat: FC<IProps> = ({info}) => {
             <Rating className={css.Rating} name="customized-10" defaultValue={vote_average} precision={0.1} max={10}
                     size="large" readOnly/>
             <p>genres</p>
-            <div className={css.text}>{genres.map((genre, index) => <NavLink to={`/genres/${genre.id}`} className={css.link} key={genre.id}> {genre.name}  </NavLink>)}</div>
+            <div className={css.text}>{genres.map((genre) => <NavLink to={`/genres/${genre.id}`} className={css.link} key={genre.id}> {genre.name}  </NavLink>)}</div>
             <p>runtime</p>
             <div className={css.text}>{runtime} min</div>
             <p>release date</p>

@@ -3,13 +3,12 @@ import {ChangeEvent, useEffect, useState} from "react";
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import {useAppDispatch, useAppSelector} from "../../../hooks";
+import {useAppDispatch} from "../../../hooks";
 import {themeActions} from "../../../redux/slices/themeSlice";
 
 
 const ThemSwicher = () => {
     const dispatch = useAppDispatch();
-    const {theme} = useAppSelector(state => state.theme)
     let saveLocal = JSON.parse(localStorage.getItem('theme')) || false
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +18,7 @@ const ThemSwicher = () => {
     const [checking, setChecking] = useState(saveLocal);
     useEffect(() => {
         dispatch(themeActions.themeChenge(saveLocal))
-    }, [checking]);
+    }, [checking, dispatch, saveLocal]);
 
     if (!checking) {
         document.body.classList.add('dark-theme');
