@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 interface IState {
     theme:boolean
 }
-const initialState ={
+const initialState:IState ={
     theme: false
 }
 
